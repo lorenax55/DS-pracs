@@ -4,10 +4,15 @@ from bicicleta_montana import BicicletaMontana
 import random
 
 class FactoriaMontana(FactoriaCarreraYBicicleta):
+    def __init__(self):
+        
+        self.prototype_bicicleta = BicicletaMontana(ID=0)
+        self.prototype_carrera = CarreraMontana()
     
     def crearCarrera(self):
-        return CarreraMontana()
+        return self.prototype_carrera.clonar()
     
     def crearBicicleta(self):
-        bici = BicicletaMontana(ID=random.randint(0, 10000))
-        return bici
+        clone = self.prototype_bicicleta.clonar()
+        clone.ID = random.randint(0, 10000)  # Asigna un ID aleatorio a la bicicleta clonada
+        return clone

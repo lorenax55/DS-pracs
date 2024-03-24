@@ -1,7 +1,8 @@
 from carrera import Carrera
 import math
+from clonable import Clonable
 
-class CarreraMontana(Carrera):
+class CarreraMontana(Carrera, Clonable):
     def __init__(self):
         super().__init__()  # Llama al constructor de la clase base para inicializar la lista de bicis
         self.modalidad = "montaña"
