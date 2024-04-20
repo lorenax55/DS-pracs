@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Recetas App',
       theme: ThemeData(
-        primarySwatch: Colors.amber, // Cambia a un color cálido base
+        primarySwatch: Colors.amber,  
         visualDensity: VisualDensity.adaptivePlatformDensity,
         appBarTheme: AppBarTheme(
-          color: Colors.orange[300], // Color más oscuro y cálido para el AppBar
+          color: Colors.orange[300], 
         ),
       ),
       home: RecetasHome(),
@@ -46,7 +46,7 @@ class _RecetasHomeState extends State<RecetasHome> {
     Colors.lightGreen[100]!,
     Colors.lime[100]!,
     Colors.amber[100]!,
-    Colors.red[100]!, // Lista de colores para alternar
+    Colors.red[100]!,  
   ];
 
   @override
@@ -70,8 +70,8 @@ class _RecetasHomeState extends State<RecetasHome> {
               child: ElevatedButton(
                 onPressed: () => aniadirNuevaSeccion(),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor : Color.fromARGB(255, 255, 255, 255), // Un tono más específico para este botón
-                  foregroundColor: Colors.blue, // Color del texto
+                  backgroundColor : Color.fromARGB(255, 255, 255, 255),  
+                  foregroundColor: Colors.blue, 
                 ),
                 child: Text('Añadir Nueva Sección'),
               ),
@@ -148,7 +148,7 @@ List<Widget> generarListaSecciones(List<Seccion> secciones, RecetaBuilder creado
   }
 
   Widget crearTarjetaSeccion(Seccion seccion, [int depth = 0]) {
-    Color backgroundColor = colors[depth % colors.length]; // Selecciona un color de fondo basado en la profundidad
+    Color backgroundColor = colors[depth % colors.length]; 
     return Card(
       color: backgroundColor,
       margin: EdgeInsets.all(depth > 0 ? 16.0 : 8.0),
@@ -158,7 +158,7 @@ List<Widget> generarListaSecciones(List<Seccion> secciones, RecetaBuilder creado
         children: [
           for (var elemento in seccion.getElementos())
             elemento is Seccion
-                ? crearTarjetaSeccion(elemento, depth + 1) // Incrementa la profundidad para subsecciones
+                ? crearTarjetaSeccion(elemento, depth + 1) 
                 : ListTile(
                     title: Text(elemento.getNombre()),
                     subtitle: Text(elemento.mostrar()),
