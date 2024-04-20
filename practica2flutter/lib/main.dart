@@ -35,7 +35,7 @@ class _RecetasHomeState extends State<RecetasHome> {
 
   final List<RecetaBuilder> creadoresRecetas = [
     CroquetaRecetaBuilder(),
-    TortillaRecetaBuilder(), // Lista de creadores de recetas.
+    TortillaRecetaBuilder(), // Lista de creadores de builders de recetas.
   ];
 
   @override
