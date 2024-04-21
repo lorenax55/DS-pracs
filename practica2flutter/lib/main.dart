@@ -73,11 +73,11 @@ class _RecetasHomeState extends State<RecetasHome> {
         body: Column(
           children: [
             Expanded(
-              flex: 1,
+              flex: 4,
               child: construirSelectorRecetas(),
             ),
             Expanded(
-              flex: 3,
+              flex: 5,
               child: mostrarSecciones(),
             ),
             Padding(
