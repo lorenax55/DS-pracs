@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:practica2flutter/creeperecetabuilder.dart';
+import 'package:practica2flutter/gofrerecetabuilder.dart';
 import 'chef.dart';
 import 'receta.dart';
 import 'recetabuilder.dart';
@@ -39,6 +41,8 @@ class _RecetasHomeState extends State<RecetasHome> {
   final List<RecetaBuilder> creadoresRecetas = [
     CroquetaRecetaBuilder(),
     TortillaRecetaBuilder(),
+    GofreRecetaBuilder(),
+    CreepeRecetaBuilder(),
   ];
 
   final List<Color> colors = [
@@ -53,7 +57,18 @@ class _RecetasHomeState extends State<RecetasHome> {
   Widget build(BuildContext context) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Recetario'),
+                title: Row(
+                children: [
+                  const Text("Recetario"),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: SizedBox(
+                        height: 50, 
+                        child: Image.asset('assets/images/recetario.png'),
+                      ),
+                    ),
+                ],
+              ),
         ),
         body: Column(
           children: [
@@ -101,7 +116,7 @@ void mostrarDialogoSeccion(RecetaBuilder creador) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Asignar Receta'),
+        title: const Text('Asignar Receta'),
         content: SingleChildScrollView(
           child: ListBody(
             children: generarListaSecciones(secciones, creador),
@@ -153,8 +168,28 @@ List<Widget> generarListaSecciones(List<Seccion> secciones, RecetaBuilder creado
       color: backgroundColor,
       margin: EdgeInsets.all(depth > 0 ? 16.0 : 8.0),
       child: ExpansionTile(
-        title: Text(seccion.getNombre()),
-        initiallyExpanded: false,
+      title: Row(
+        children: [
+          Text(seccion.getNombre()),
+          if (seccion.getNombre() == 'Salado')
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: SizedBox(
+                height: 50, 
+                child: Image.asset('assets/images/salero.png'),
+              ),
+            )else if (seccion.getNombre() == 'Dulce')
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: SizedBox(
+                  height: 50, 
+                  child: Image.asset('assets/images/azucar.png'),
+                ),
+              ),
+            
+        ],
+      ),
+      initiallyExpanded: false,
         children: [
           for (var elemento in seccion.getElementos())
             elemento is Seccion
