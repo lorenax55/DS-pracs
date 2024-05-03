@@ -31,7 +31,7 @@ class Seccion implements Elemento {
   String getNombre() {
     return nombre;
   }
-
+  @override
   List<Elemento> getElementos() {
     return elementos;
   }

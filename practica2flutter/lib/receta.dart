@@ -48,4 +48,8 @@ class Receta implements Elemento{
   String getNombre() {
     return nombre;
   }
+  @override
+  List<Elemento> getElementos() {
+    throw UnimplementedError();
+  }
 }

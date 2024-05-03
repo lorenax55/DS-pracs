@@ -5,4 +5,5 @@ abstract class Elemento {
   void remove(Elemento elemento);
   String mostrar();
   String getNombre();
+  List<Elemento>  getElementos();
 }
