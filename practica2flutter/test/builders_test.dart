@@ -8,14 +8,17 @@ import 'package:practica2flutter/chef.dart';
 
 void main() {
   group('Builder Tests', () {
+
+    TortillaRecetaBuilder builderT = TortillaRecetaBuilder();
+    GofreRecetaBuilder builderG = GofreRecetaBuilder();
+    CreepeRecetaBuilder builderC = CreepeRecetaBuilder();
     test('GofreRecetaBuilder crea un gofre', () {
-      GofreRecetaBuilder builder = GofreRecetaBuilder();
 
-      builder.buildIngredientes();
-      builder.buildPasos();
-      builder.buildTiempo();
+      builderG.buildIngredientes();
+      builderG.buildPasos();
+      builderG.buildTiempo();
 
-      final receta = builder.getReceta();
+      final receta = builderG.getReceta();
 
       expect(receta.ingredientes, equals('Harina, azúcar, leche, huevo, mantequilla'));
       expect(receta.pasos, equals('Mezclar la harina, el azúcar, la leche, el huevo, la mantequilla. Cocinar en una gofrera caliente.'));
@@ -37,51 +40,49 @@ void main() {
     });
 
     test('CreepeRecetaBuilder crea un creepe', () {
-      CreepeRecetaBuilder builder = CreepeRecetaBuilder();
 
-      builder.buildIngredientes();
-      builder.buildPasos();
-      builder.buildTiempo();
+      builderC.buildIngredientes();
+      builderC.buildPasos();
+      builderC.buildTiempo();
 
-      final receta = builder.getReceta();
+      final receta = builderC.getReceta();
 
       expect(receta.ingredientes, equals('Harina, leche, huevo, mantequilla, azúcar'));
       expect(receta.pasos, equals('Mezclar la harina, la leche, el huevo y el azúcar. Cocinar en una sartén caliente.'));
       expect(receta.tiempoPreparacion, equals(20));
     });
-    test('TortillaRecetaBuilder crea una tortilla de patatas correctamente', () {
-      TortillaRecetaBuilder builder = TortillaRecetaBuilder();
+    test('TortillaRecetaBuilder crea una tortilla de patatas', () {
 
-      builder.buildIngredientes();
-      builder.buildPasos();
-      builder.buildTiempo();
+      builderT.buildIngredientes();
+      builderT.buildPasos();
+      builderT.buildTiempo();
 
-      final receta = builder.getReceta();
+      final receta = builderT.getReceta();
 
       expect(receta.ingredientes, equals('Huevos, patatas, cebolla, sal, aceite'));
       expect(receta.pasos, equals('Pelar y cortar las patatas y la cebolla. Batir los huevos y mezclar con las patatas y la cebolla. Freír en una sartén con aceite caliente.'));
       expect(receta.tiempoPreparacion, equals(30));
     });
 
-  group('Chef Tests', () {
-    test('Intentar construir receta sin configurar RecetaBuilder lanza excepción', () {
-      Chef chef = Chef();
+  group('Chef Tests', () {     
 
-      // Verificar que lanzar una excepción si se intenta construir la receta sin un builder
+    Chef chef = Chef();
+    GofreRecetaBuilder gofreBuilder = GofreRecetaBuilder();
+    CroquetaRecetaBuilder croquetaBuilder = CroquetaRecetaBuilder();
+
+    test('Construir receta sin espeficar cual', () {
+      // si la receta no ha sido construida, debe dar error
+
       expect(() => chef.buildReceta(), throwsException);
     });
 
-    test('Intentar obtener receta sin configurar RecetaBuilder lanza excepción', () {
-      Chef chef = Chef();
+    test('Intentar obtener receta sin espeficar', () {
+      // si la receta no ha sido construida, debe dar error
 
-      // Verificar que lanzar una excepción si se intenta obtener la receta sin un builder
       expect(() => chef.getReceta(), throwsException);
     });
 
     test('Chef cambia de builder y construye recetas distintas correctamente', () {
-      Chef chef = Chef();
-      GofreRecetaBuilder gofreBuilder = GofreRecetaBuilder();
-      CroquetaRecetaBuilder croquetaBuilder = CroquetaRecetaBuilder();
 
       // Construir gofres primero
       chef.setRecetaBuilder(gofreBuilder);

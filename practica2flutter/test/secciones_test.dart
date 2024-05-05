@@ -6,8 +6,8 @@ import 'package:practica2flutter/tortillarecetabuilder.dart';
 
 void main() {
   group('Grupo 1 Secciones', () {
+    
     List<Seccion> recetario;
-
     List<RecetaBuilder> creadroesRecetas;
     recetario = [
       Seccion('Dulce'),

@@ -10,14 +10,14 @@ class Chef {
 
     Receta getReceta() {
       if (recetaBuilder == null) {
-        throw Exception('RecetaBuilder no ha sido configurado.');
+        throw Exception('RecetaBuilder no ha sido construido');
       }
       return recetaBuilder!.getReceta();
     }
 
     void buildReceta() {
         if (recetaBuilder == null) {
-            throw Exception('RecetaBuilder no ha sido configurado.');
+            throw Exception('RecetaBuilder no ha sido construido');
         }
         recetaBuilder!.buildIngredientes();
         recetaBuilder!.buildPasos();
