@@ -8,16 +8,16 @@ void main() {
   group('Grupo 1 Secciones', () {
     
     List<Seccion> recetario;
-    List<RecetaBuilder> creadroesRecetas;
+    List<RecetaBuilder> creadoresRecetas;
     recetario = [
       Seccion('Dulce'),
     ];
-    creadroesRecetas = [CreepeRecetaBuilder(), TortillaRecetaBuilder()];
+    creadoresRecetas = [CreepeRecetaBuilder(), TortillaRecetaBuilder()];
     test('Crear seccion y meter receta', () {
       expect(recetario[0].getNombre(), 'Dulce');
       expect(recetario.length, 1);
 
-      recetario[0].add(creadroesRecetas[0].getReceta());
+      recetario[0].add(creadoresRecetas[0].getReceta());
       expect(recetario[0].elementos.length, 1);
       expect(recetario[0].elementos[0].nombre, 'Creepes');
     });
@@ -29,7 +29,7 @@ void main() {
     });
 
     test('Poner receta a subseccion', () {
-      recetario[0].elementos[1].add(creadroesRecetas[1].getReceta());
+      recetario[0].elementos[1].add(creadoresRecetas[1].getReceta());
       expect(recetario[0].elementos[1].getElementos().length, 1);
       expect(recetario[0].elementos[1].getElementos()[0].nombre,
           'Tortilla de patatas');
@@ -51,6 +51,32 @@ void main() {
           'Tiempo de preparacion: 0 minutos\n'
           '');
       });
+
+
+  test('Crear una subsección en una subsección', () {
+      Seccion seccionPrincipal = Seccion('Principal');
+      Seccion primeraSubseccion = Seccion('Subsección 1');
+      seccionPrincipal.add(primeraSubseccion);
+      Seccion subSubseccion = Seccion('Subsección 1.1');
+      primeraSubseccion.add(subSubseccion);
+
+      expect(seccionPrincipal.elementos.first.getElementos().first, subSubseccion);
+      expect(seccionPrincipal.elementos.first.getElementos().first.getNombre(), 'Subsección 1.1');
+    });
+
+  test('Agregar varias recetas a una sección', () {
+      recetario[0].add(creadoresRecetas[0].getReceta());
+      recetario[0].add(creadoresRecetas[1].getReceta());
+      // recetario[0].elementos[0] --> Creepes
+      // recetario[0].elementos[1] --> POSTRES
+      expect(recetario[0].elementos[2].nombre, 'Creepes');
+      expect(recetario[0].elementos[3].nombre, 'Tortilla de patatas');
+    });
+    test('Intentar crear subsección en receta', () {
+      var receta = creadoresRecetas[0].getReceta();
+      recetario[0].add(receta);
+      expect(() => receta.add(Seccion('Subsección inválida')), throwsUnimplementedError);
+    });
 
 
   });
