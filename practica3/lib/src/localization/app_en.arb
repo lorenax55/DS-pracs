@@ -1,0 +1,6 @@
+{
+  "appTitle": "practica2flutter",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}

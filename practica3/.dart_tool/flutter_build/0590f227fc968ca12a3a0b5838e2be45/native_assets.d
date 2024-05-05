@@ -1,0 +1,1 @@
+ /home/ignacio/Escritorio/DSPRACTICA2/DS-pracs/practica3/.dart_tool/flutter_build/0590f227fc968ca12a3a0b5838e2be45/native_assets.yaml: 
