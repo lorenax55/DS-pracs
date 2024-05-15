@@ -1,0 +1,1 @@
+ /home/ignacio/Escritorio/DSPRACTICA2/DS-pracs/practica3/.dart_tool/flutter_gen/gen_l10n/app_localizations_en.dart /home/ignacio/Escritorio/DSPRACTICA2/DS-pracs/practica3/.dart_tool/flutter_gen/gen_l10n/app_localizations.dart:  /home/ignacio/Escritorio/DSPRACTICA2/DS-pracs/practica3/l10n.yaml /home/ignacio/Escritorio/DSPRACTICA2/DS-pracs/practica3/lib/src/localization/app_en.arb
