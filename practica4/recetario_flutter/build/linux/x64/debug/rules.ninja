@@ -42,7 +42,7 @@ rule CXX_EXECUTABLE_LINKER__practica2flutter
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /snap/flutter/145/usr/bin/cmake -S/home/ignacio/Escritorio/DSPRACTICA2/DS-pracs/practica3/linux -B/home/ignacio/Escritorio/DSPRACTICA2/DS-pracs/practica3/build/linux/x64/debug
+  command = /snap/flutter/145/usr/bin/cmake -S/home/ignacio/Escritorio/DS-pracs/practica4/recetario_flutter/linux -B/home/ignacio/Escritorio/DS-pracs/practica4/recetario_flutter/build/linux/x64/debug
   description = Re-running CMake...
   generator = 1
 

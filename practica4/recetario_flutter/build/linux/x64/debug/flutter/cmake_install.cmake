@@ -1,8 +1,8 @@
-# Install script for directory: /home/ignacio/Escritorio/DSPRACTICA2/DS-pracs/practica3/linux/flutter
+# Install script for directory: /home/ignacio/Escritorio/DS-pracs/practica4/recetario_flutter/linux/flutter
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ignacio/Escritorio/DSPRACTICA2/DS-pracs/practica3/build/linux/x64/debug/bundle")
+  set(CMAKE_INSTALL_PREFIX "/home/ignacio/Escritorio/DS-pracs/practica4/recetario_flutter/build/linux/x64/debug/bundle")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

@@ -9,15 +9,16 @@ class GestorDeRecetas {
   final String apiUrl = "http://127.0.0.1:3000"; // URL de tu API
 
   Future<void> cargarRecetas(String usuario) async {
-    final response = await http.get(Uri.parse('$apiUrl/recetas?usuario=$usuario'));
+    final response = await http.get(Uri.parse('$apiUrl/usuarios/$usuario/recetas'));
     if (response.statusCode == 200) {
       List<dynamic> recetasJson = json.decode(response.body);
       misRecetas.clear();
-      misRecetas.addAll(recetasJson.map((json) => Receta.fromJson(json)).toList());
+      misRecetas.addAll(recetasJson.map((json) => Receta.fromJson(json)));
     } else {
       throw Exception('Failed to load recipes');
     }
   }
+
 
   Future<void> agregarReceta(Receta receta) async {
     final response = await http.post(
@@ -46,7 +47,7 @@ class GestorDeRecetas {
   }
 
   Future<void> cargarSecciones(String usuario) async {
-    final response = await http.get(Uri.parse('$apiUrl/secciones?usuario=$usuario'));
+    final response = await http.get(Uri.parse('$apiUrl/usuarios/$usuario/secciones'));
     if (response.statusCode == 200) {
       List<dynamic> seccionesJson = json.decode(response.body);
       misSecciones.clear();
@@ -58,7 +59,7 @@ class GestorDeRecetas {
 
   Future<void> agregarSeccion(Seccion seccion) async {
     final response = await http.post(
-      Uri.parse('$apiUrl/secciones'),
+      Uri.parse('$apiUrl/usuarios/1/secciones'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -71,9 +72,9 @@ class GestorDeRecetas {
     }
   }
 
-  Future<void> eliminarSeccion(Seccion seccion) async {
+  Future<void> eliminarSeccion(Seccion seccion,) async {
     final response = await http.delete(
-      Uri.parse('$apiUrl/secciones/${seccion.id}'),
+      Uri.parse('$apiUrl/usuarios/1/secciones/${seccion.id}'),
     );
     if (response.statusCode == 200) {
       misSecciones.removeWhere((s) => s.id == seccion.id);

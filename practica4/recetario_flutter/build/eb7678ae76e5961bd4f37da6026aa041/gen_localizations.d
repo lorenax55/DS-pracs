@@ -1,1 +1,0 @@
- /Users/JB/DS-pracs/practica4/recetario_flutter/.dart_tool/flutter_gen/gen_l10n/app_localizations_en.dart /Users/JB/DS-pracs/practica4/recetario_flutter/.dart_tool/flutter_gen/gen_l10n/app_localizations.dart:  /Users/JB/DS-pracs/practica4/recetario_flutter/l10n.yaml /Users/JB/DS-pracs/practica4/recetario_flutter/lib/src/localization/app_en.arb
