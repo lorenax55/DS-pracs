@@ -1,0 +1,55 @@
+{"protocolVersion":"0.1.1","runnerVersion":null,"pid":25462,"type":"start","time":0}
+{"suite":{"id":0,"platform":"vm","path":"/Users/JB/DS-pracs/practica2flutter/test/builders_test.dart"},"type":"suite","time":0}
+{"test":{"id":1,"name":"loading /Users/JB/DS-pracs/practica2flutter/test/builders_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":3}
+{"suite":{"id":2,"platform":"vm","path":"/Users/JB/DS-pracs/practica2flutter/test/widget_test.dart"},"type":"suite","time":19}
+{"test":{"id":3,"name":"loading /Users/JB/DS-pracs/practica2flutter/test/widget_test.dart","suiteID":2,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":23}
+{"count":3,"time":29,"type":"allSuites"}
+
+[{"event":"test.startedProcess","params":{"vmServiceUri":null,"observatoryUri":null}}]
+
+[{"event":"test.startedProcess","params":{"vmServiceUri":null,"observatoryUri":null}}]
+{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":4975}
+{"group":{"id":4,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":7,"line":null,"column":null,"url":null},"type":"group","time":4981}
+{"group":{"id":5,"suiteID":0,"parentID":4,"name":"Builder Tests","metadata":{"skip":false,"skipReason":null},"testCount":7,"line":10,"column":3,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/builders_test.dart"},"type":"group","time":4983}
+{"test":{"id":6,"name":"Builder Tests GofreRecetaBuilder crea un gofre","suiteID":0,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":14,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/builders_test.dart"},"type":"testStart","time":4983}
+{"testID":3,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":5039}
+{"group":{"id":7,"suiteID":2,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":1,"line":null,"column":null,"url":null},"type":"group","time":5040}
+{"group":{"id":8,"suiteID":2,"parentID":7,"name":"MyWidget","metadata":{"skip":false,"skipReason":null},"testCount":1,"line":15,"column":3,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/widget_test.dart"},"type":"group","time":5040}
+{"test":{"id":9,"name":"MyWidget should display a string of text","suiteID":2,"groupIDs":[7,8],"metadata":{"skip":false,"skipReason":null},"line":165,"column":5,"url":"package:flutter_test/src/widget_tester.dart","root_line":16,"root_column":5,"root_url":"file:///Users/JB/DS-pracs/practica2flutter/test/widget_test.dart"},"type":"testStart","time":5041}
+{"testID":6,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":5064}
+{"test":{"id":10,"name":"Builder Tests CroquetaRecetaBuilder crea una croqueta","suiteID":0,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":30,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/builders_test.dart"},"type":"testStart","time":5065}
+{"testID":10,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":5071}
+{"test":{"id":11,"name":"Builder Tests CreepeRecetaBuilder crea un creepe","suiteID":0,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":50,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/builders_test.dart"},"type":"testStart","time":5071}
+{"testID":11,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":5077}
+{"test":{"id":12,"name":"Builder Tests TortillaRecetaBuilder crea una tortilla de patatas","suiteID":0,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":65,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/builders_test.dart"},"type":"testStart","time":5078}
+{"testID":12,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":5087}
+{"group":{"id":13,"suiteID":0,"parentID":5,"name":"Builder Tests Chef Tests","metadata":{"skip":false,"skipReason":null},"testCount":3,"line":81,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/builders_test.dart"},"type":"group","time":5088}
+{"test":{"id":14,"name":"Builder Tests Chef Tests Construir receta sin espeficar cual","suiteID":0,"groupIDs":[4,5,13],"metadata":{"skip":false,"skipReason":null},"line":86,"column":7,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/builders_test.dart"},"type":"testStart","time":5088}
+{"testID":14,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":5102}
+{"test":{"id":15,"name":"Builder Tests Chef Tests Intentar obtener receta sin espeficar","suiteID":0,"groupIDs":[4,5,13],"metadata":{"skip":false,"skipReason":null},"line":92,"column":7,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/builders_test.dart"},"type":"testStart","time":5103}
+{"testID":15,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":5112}
+{"test":{"id":16,"name":"Builder Tests Chef Tests Chef cambia de builder y construye recetas distintas correctamente","suiteID":0,"groupIDs":[4,5,13],"metadata":{"skip":false,"skipReason":null},"line":98,"column":7,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/builders_test.dart"},"type":"testStart","time":5112}
+{"testID":16,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":5122}
+{"suite":{"id":17,"platform":"vm","path":"/Users/JB/DS-pracs/practica2flutter/test/secciones_test.dart"},"type":"suite","time":5161}
+{"test":{"id":18,"name":"loading /Users/JB/DS-pracs/practica2flutter/test/secciones_test.dart","suiteID":17,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":5161}
+
+[{"event":"test.startedProcess","params":{"vmServiceUri":null,"observatoryUri":null}}]
+{"testID":9,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6165}
+{"testID":18,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":6553}
+{"group":{"id":19,"suiteID":17,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":7,"line":null,"column":null,"url":null},"type":"group","time":6554}
+{"group":{"id":20,"suiteID":17,"parentID":19,"name":"Grupo 1 Secciones","metadata":{"skip":false,"skipReason":null},"testCount":7,"line":8,"column":3,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/secciones_test.dart"},"type":"group","time":6554}
+{"test":{"id":21,"name":"Grupo 1 Secciones Crear seccion y meter receta","suiteID":17,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":15,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/secciones_test.dart"},"type":"testStart","time":6554}
+{"testID":21,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6607}
+{"test":{"id":22,"name":"Grupo 1 Secciones Crear subseccion","suiteID":17,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":24,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/secciones_test.dart"},"type":"testStart","time":6608}
+{"testID":22,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6616}
+{"test":{"id":23,"name":"Grupo 1 Secciones Poner receta a subseccion","suiteID":17,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":30,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/secciones_test.dart"},"type":"testStart","time":6617}
+{"testID":23,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6623}
+{"test":{"id":24,"name":"Grupo 1 Secciones Mostrar sección y recetas","suiteID":17,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":37,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/secciones_test.dart"},"type":"testStart","time":6624}
+{"testID":24,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6629}
+{"test":{"id":25,"name":"Grupo 1 Secciones Crear una subsección en una subsección","suiteID":17,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":56,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/secciones_test.dart"},"type":"testStart","time":6630}
+{"testID":25,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6634}
+{"test":{"id":26,"name":"Grupo 1 Secciones Agregar varias recetas a una sección","suiteID":17,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":69,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/secciones_test.dart"},"type":"testStart","time":6634}
+{"testID":26,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6639}
+{"test":{"id":27,"name":"Grupo 1 Secciones Intentar crear subsección en receta","suiteID":17,"groupIDs":[19,20],"metadata":{"skip":false,"skipReason":null},"line":77,"column":5,"url":"file:///Users/JB/DS-pracs/practica2flutter/test/secciones_test.dart"},"type":"testStart","time":6639}
+{"testID":27,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6646}
+{"success":true,"type":"done","time":6662}

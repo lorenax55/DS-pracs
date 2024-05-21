@@ -1,0 +1,1 @@
+ /Users/JB/DS-pracs/practica4/recetario_flutter/.dart_tool/flutter_build/f1c2a8a75d7b9f04f4598d2627975a1b/native_assets.yaml: 
