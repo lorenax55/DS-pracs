@@ -1,6 +1,7 @@
 /home/ignacio/Escritorio/DS-pracs/practica4/recetario_flutter/build/linux/x64/debug/bundle/practica2flutter
 /home/ignacio/Escritorio/DS-pracs/practica4/recetario_flutter/build/linux/x64/debug/bundle/data/icudtl.dat
 /home/ignacio/Escritorio/DS-pracs/practica4/recetario_flutter/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/ignacio/Escritorio/DS-pracs/practica4/recetario_flutter/build/linux/x64/debug/bundle/lib/native_assets.yaml
 /home/ignacio/Escritorio/DS-pracs/practica4/recetario_flutter/build/linux/x64/debug/bundle/data/flutter_assets/version.json
 /home/ignacio/Escritorio/DS-pracs/practica4/recetario_flutter/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.bin
 /home/ignacio/Escritorio/DS-pracs/practica4/recetario_flutter/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin

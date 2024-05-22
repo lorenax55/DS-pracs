@@ -4,7 +4,7 @@ import 'seccion.dart';
 import 'receta.dart';
 import 'usuario.dart';
 class ApiService {
-  static const String baseUrl = 'http://localhost:3000'; // Cambia esto a tu URL base
+  static const String baseUrl = 'http://localhost:3000'; 
 
   Future<List<Seccion>> fetchSecciones(String userId) async {
     final response = await http.get(Uri.parse('$baseUrl/usuarios/$userId/secciones'));
@@ -92,5 +92,4 @@ class ApiService {
       throw Exception('Failed to add user');
     }
   }
-  // Implementar funciones para update y delete según sea necesario
 }

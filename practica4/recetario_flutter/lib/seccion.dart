@@ -5,9 +5,9 @@ class Seccion implements Elemento {
   int? id;
   List<Elemento> elementos = [];
   String nombre;
-  int? idpadre;
+  int? parent_id;
 
-  Seccion(this.nombre, {this.id, this.idpadre});
+  Seccion(this.nombre, {this.id, this.parent_id});
 
   @override
   void add(Elemento elemento) {
@@ -37,52 +37,42 @@ class Seccion implements Elemento {
   List<Elemento> getElementos() {
     return elementos;
   }
-factory Seccion.fromJson(Map<String, dynamic> json) {
-  Seccion seccion = Seccion(
-    json['nombre'] ?? '', // Asegurando que el nombre no sea nulo
-    id: json['id'],
-    idpadre: json['idpadre'],
-  );
-  if (json['subsecciones'] != null) {
-    // Recorrer las subsecciones y convertirlas en instancias de Seccion
-    List<dynamic> subsecciones = json['subsecciones'];
-    subsecciones.forEach((subseccionJson) {
-      Seccion subseccion = Seccion.fromJson(subseccionJson);
-      seccion.add(subseccion); // Agregar la subsección a la sección actual
-    });
-  }
-  // Ahora manejar los elementos (recetas) dentro de esta sección
-  if (json['elementos'] != null) {
-    seccion.elementos = (json['elementos'] as List).map((item) {
-      // Verificar si el elemento tiene la estructura esperada (tipo, nombre)
-      if (item is Map<String, dynamic> &&
-          item.containsKey('tipo') &&
-          item.containsKey('nombre')) {
-        if (item['tipo'] == 'receta') {
-          return Receta.fromJson(item);
+
+  factory Seccion.fromJson(Map<String, dynamic> json) {
+    Seccion seccion = Seccion(
+      json['nombre'] ?? '', 
+      id: json['id'],
+      parent_id: json['parent_id'],
+    );
+
+    if (json['elementos'] != null) {
+      seccion.elementos = (json['elementos'] as List).map((item) {
+        if (item is Map<String, dynamic> &&
+            item.containsKey('tipo') &&
+            item.containsKey('nombre')) {
+          if (item['tipo'] == 'receta') {
+            return Receta.fromJson(item);
+          } else {
+            throw Exception('Error tipo : ${item['tipo']}');
+          }
         } else {
-          throw Exception('Tipo desconocido de elemento: ${item['tipo']}');
+          throw Exception('Error estructuca: $item');
         }
-      } else {
-        throw Exception('Estructura de elemento inválida: $item');
-      }
-    }).toList();
+      }).toList();
+    }
+    return seccion;
   }
-  return seccion;
-}
 
   Map<String, dynamic> toJson() {
     return {
       if (id != null) 'id': id,
       'nombre': nombre,
-      if (idpadre != null) 'idpadre': idpadre,
+      if (parent_id != null) 'parent_id': parent_id,
       'elementos': elementos.map((e) {
-        if (e is Seccion) {
-          return e.toJson();
-        } else if (e is Receta) {
+        if (e is Receta) {
           return e.toJson();
         } else {
-          throw Exception('Tipo desconocido de elemento');
+          throw Exception('Error tipo');
         }
       }).toList(),
     };

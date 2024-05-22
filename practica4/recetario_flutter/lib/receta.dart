@@ -53,7 +53,6 @@ class Receta implements Elemento {
     }
   }
 
-  // Asignar el id de la sección si está presente en el JSON
   if (json.containsKey('seccion_id') && json['seccion_id'] != null) {
     receta.idseccion = json['seccion_id'];
   }

@@ -6,7 +6,7 @@ import 'seccion.dart';
 class GestorDeRecetas {
   List<Receta> misRecetas = [];
   List<Seccion> misSecciones = [];
-  final String apiUrl = "http://127.0.0.1:3000"; // URL de tu API
+  final String apiUrl = "http://127.0.0.1:3000"; 
 
   Future<void> cargarRecetas(String usuario) async {
     final response = await http.get(Uri.parse('$apiUrl/usuarios/$usuario/recetas'));

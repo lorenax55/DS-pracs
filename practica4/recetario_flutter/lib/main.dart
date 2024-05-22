@@ -53,124 +53,132 @@ class _RecetasHomeState extends State<RecetasHome> {
     super.initState();
     _cargarDatosIniciales();
   }
+
+
 void _cargarDatosIniciales() async {
   try {
+    //para cuando cambie user tmb
+    secciones.clear();
     List<Usuario> fetchedUsuarios = await apiService.fetchUsuarios();
     List<Seccion> fetchedSecciones =
         await apiService.fetchSecciones(currentUser);
     List<Receta> fetchedRecetas = await apiService.fetchRecetas(currentUser);
-    await gestorDeRecetas.cargarRecetas(currentUser);
-    await gestorDeRecetas.cargarSecciones(currentUser);
 
     setState(() {
       usuarios = fetchedUsuarios;
-      secciones = fetchedSecciones;
       gestorDeRecetas.misRecetas = fetchedRecetas;
 
       for (Receta receta in gestorDeRecetas.misRecetas) {
-        for (Seccion seccion in secciones) {
-          if (seccion.id == receta.idseccion) {
+        for (Seccion seccion in fetchedSecciones) {
+          if (receta.idseccion == seccion.id) {
             seccion.add(receta);
-            break; // Salir del bucle una vez que se ha encontrado la sección correspondiente
+            break;
           }
         }
       }
-  
-      for (Seccion seccion in secciones) {
-        if (seccion.idpadre != null) {
-          for (Seccion parent in secciones) {
-            if (parent.id == seccion.idpadre) {
-              parent.add(seccion);
-              break;
-            }
-          }
-        }
-        
-      }
+      List<Seccion> seccionesPrincipales = fetchedSecciones
+          .where((seccion) => seccion.parent_id == null)
+          .toList();
 
+      for (Seccion seccionPrincipal in seccionesPrincipales) {
+        secciones.add(seccionPrincipal);
+        _agregarSubsecciones(seccionPrincipal, fetchedSecciones);
+      }
     });
   } catch (e) {
     print("Error loading data: $e");
   }
 }
 
-
-void aniadirNuevaSeccion() {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      TextEditingController controladorNombreSeccion = TextEditingController();
-      return AlertDialog(
-        title: Text('Nueva Sección'),
-        content: TextField(
-          controller: controladorNombreSeccion,
-          decoration: InputDecoration(hintText: "Nombre de la Sección"),
-        ),
-        actions: <Widget>[
-          TextButton(
-            child: Text('Cancelar'),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          TextButton(
-            child: Text('Añadir'),
-            onPressed: () async {
-              try {
-                await apiService.addSeccion(
-                    currentUser, controladorNombreSeccion.text);
-                _cargarDatosIniciales();
-                Navigator.of(context).pop();
-              } catch (e) {
-                print("Error adding section: $e");
-              }
-            },
-          ),
-        ],
-      );
-    },
-  );
+void _agregarSubsecciones(Seccion seccionPadre, List<Seccion> secciones) {
+  List<Seccion> subsecciones = secciones
+      .where((seccion) => seccion.parent_id == seccionPadre.id)
+      .toList();
+  for (Seccion subseccion in subsecciones) {
+    seccionPadre.add(subseccion);
+    _agregarSubsecciones(subseccion, secciones);
+  }
 }
 
 
-void aniadirSubseccion(Seccion parent) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      TextEditingController controladorNombreSeccion = TextEditingController();
-      return AlertDialog(
-        title: Text('Nueva Subsección'),
-        content: TextField(
-          controller: controladorNombreSeccion,
-          decoration: InputDecoration(hintText: "Nombre de la Subsección"),
-        ),
-        actions: <Widget>[
-          TextButton(
-            child: Text('Cancelar'),
-            onPressed: () => Navigator.of(context).pop(),
+  void aniadirNuevaSeccion() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        TextEditingController controladorNombreSeccion =
+            TextEditingController();
+        return AlertDialog(
+          title: Text('Nueva Sección'),
+          content: TextField(
+            controller: controladorNombreSeccion,
+            decoration: InputDecoration(hintText: "Nombre de la Sección"),
           ),
-          TextButton(
-            child: Text('Añadir'),
-            onPressed: () async {
-              try {
-                Seccion nuevaSubseccion = Seccion(
-                  controladorNombreSeccion.text,
-                  idpadre: parent.id,
-                );
-                await apiService.addSeccion(
-                    currentUser, controladorNombreSeccion.text, parentId: parent.id);
-                setState(() {
-                  parent.add(nuevaSubseccion);
-                });
-                Navigator.of(context).pop();
-              } catch (e) {
-                print("Error adding subsection: $e");
-              }
-            },
+          actions: <Widget>[
+            TextButton(
+              child: Text('Cancelar'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            TextButton(
+              child: Text('Añadir'),
+              onPressed: () async {
+                try {
+                  await apiService.addSeccion(
+                      currentUser, controladorNombreSeccion.text);
+                  _cargarDatosIniciales();
+                  Navigator.of(context).pop();
+                } catch (e) {
+                  print("Error adding section: $e");
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void aniadirSubseccion(Seccion parent) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        TextEditingController controladorNombreSeccion =
+            TextEditingController();
+        return AlertDialog(
+          title: Text('Nueva Subsección'),
+          content: TextField(
+            controller: controladorNombreSeccion,
+            decoration: InputDecoration(hintText: "Nombre de la Subsección"),
           ),
-        ],
-      );
-    },
-  );
-}
+          actions: <Widget>[
+            TextButton(
+              child: Text('Cancelar'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            TextButton(
+              child: Text('Añadir'),
+              onPressed: () async {
+                try {
+                  Seccion nuevaSubseccion = Seccion(
+                    controladorNombreSeccion.text,
+                    parent_id: parent.id,
+                  );
+                  await apiService.addSeccion(
+                      currentUser, controladorNombreSeccion.text,
+                      parentId: parent.id);
+                  setState(() {
+                    parent.add(nuevaSubseccion);
+                  });
+                  Navigator.of(context).pop();
+                } catch (e) {
+                  print("Error adding subsection: $e");
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   void eliminarReceta(Receta receta) {
     gestorDeRecetas.eliminarReceta(receta).then((_) {
