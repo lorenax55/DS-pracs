@@ -4,7 +4,7 @@ import 'seccion.dart';
 import 'receta.dart';
 import 'usuario.dart';
 class ApiService {
-  static const String baseUrl = 'http://localhost:3000'; 
+  static const String baseUrl = 'http://127.0.0.1:3000'; 
 
   Future<List<Seccion>> fetchSecciones(String userId) async {
     final response = await http.get(Uri.parse('$baseUrl/usuarios/$userId/secciones'));
