@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  ingredientes: MyString
+  pasos: MyString
+  tiempo_preparacion: 1
+  usuario: one
+  seccion: one
+
+two:
+  nombre: MyString
+  ingredientes: MyString
+  pasos: MyString
+  tiempo_preparacion: 1
+  usuario: two
+  seccion: two
